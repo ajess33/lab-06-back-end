@@ -4,11 +4,11 @@ Number and name of feature: Locations
 
 Estimate of time needed to complete: 1 hour 30 minutes
 
-Start time:
+Start time: 9:30
 
-Finish time:
+Finish time: 10:50
 
-Actual time needed to complete:
+Actual time needed to complete: 1 hour 20 minutes
 
 ---
 
