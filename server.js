@@ -8,6 +8,26 @@ app.get('/location', (req, res) => {
   res.send(findLatLong(req.query.data));
 });
 
+app.get('/weather', (req, res) => {
+  res.send(getWeather());
+});
+
+const getWeather = () => {
+  const darkSkyData = require('./data/darksky.json');
+  let weatherArr = [];
+
+  darkSkyData.daily.data.forEach((dailySet) => {
+    const weather = new Weather(dailySet);
+    weatherArr.push(weather);
+  });
+  return weatherArr;
+};
+
+function Weather(data) {
+  this.forecast = data.summary;
+  this.time = new Date(data.time * 1000).toString().slice(0, 15);
+}
+
 const findLatLong = (query) => {
   const geoData = require('./data/geo.json');
   const location = new Location(query, geoData);
